@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../favorite/favorite_screen.dart';
 import '/screens/home/home_screen.dart';
 import '/screens/profile/profile_screen.dart';
 
@@ -55,7 +56,7 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? kPrimaryColor
                       : inActiveIconColor,
                 ),
-                onPressed: () {},
+                onPressed: () => Navigator.pushNamed(context, FavoriteScreen.routeName),
               ),
               IconButton(
                 icon: SvgPicture.asset(
