@@ -7,11 +7,13 @@ import 'sign_up_form.dart';
 
 class SignUpScreen extends StatelessWidget {
   static String routeName = "/sign_up";
+
+  const SignUpScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sign Up"),
+        title: const Text("Sign Up"),
       ),
       body: SafeArea(
         child: SizedBox(
@@ -22,12 +24,12 @@ class SignUpScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Text("Register Account", style: headingStyle),
                   SizedBox(height: SizeConfig.screenHeight * 0.08),
-                  SignUpForm(),
+                  const SignUpForm(),
                   SizedBox(height: SizeConfig.screenHeight * 0.04),
-                  Text(
+                  const Text(
                     " or ",
                     textAlign: TextAlign.center,
                   ),
@@ -53,7 +55,7 @@ class SignUpScreen extends StatelessWidget {
                   Text(
                     'By continuing you confirm that you agree \nwith our Term and Condition',
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   )
                 ],
               ),

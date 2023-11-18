@@ -6,6 +6,8 @@ import '/size_config.dart';
 import 'cart_card.dart';
 
 class Body extends StatefulWidget {
+  const Body({super.key});
+
   @override
   _BodyState createState() => _BodyState();
 }
