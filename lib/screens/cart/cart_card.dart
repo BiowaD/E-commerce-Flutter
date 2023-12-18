@@ -26,8 +26,8 @@ class _CartCard extends State<CartCard>{
 
       children: [
         Positioned(
-            top: -14,
-            right: -14,
+            top: 14,
+            right: 14,
             child: Transform.scale(
               scale: 1.2,
               child: Checkbox(
