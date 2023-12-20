@@ -3,6 +3,8 @@ import 'size_config.dart';
 
 const kPrimaryColor = Color(0xFFFF7643);
 const kPrimaryLightColor = Color(0xFFFFECDF);
+const kLigthColor = Color(0xffffffff);
+const kGreyColor = Color(0xa3eaeaea);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
