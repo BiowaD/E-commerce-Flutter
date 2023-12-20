@@ -1,3 +1,4 @@
+import 'package:eshop/components/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../constants.dart';
@@ -17,47 +18,67 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kGreyColor ,
-      body: Padding(
-        padding:
-        EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-        child: ListView.builder(
-          itemCount: demoCarts.length,
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Dismissible(
-              key: Key(demoCarts[index].product.id.toString()),
-              direction: DismissDirection.endToStart,
-              onDismissed: (direction) {
-                setState(() {
-                  demoCarts.removeAt(index);
-                });
-              },
-              background: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFFE6E6),
-                  borderRadius: BorderRadius.circular(15),
+      body: Column(
+        children: [
+          Expanded(
+            flex: 4,
+              child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+                child: ListView.builder(
+                  itemCount: demoCarts.length,
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Dismissible(
+                      key: Key(demoCarts[index].product.id.toString()),
+                      direction: DismissDirection.endToStart,
+                      onDismissed: (direction) {
+                        setState(() {
+                          demoCarts.removeAt(index);
+                        });
+                        },
+                      background: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFFE6E6),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Row(
+                          children: [
+                            const Spacer(),
+                            SvgPicture.asset("assets/icons/Trash.svg"),
+                          ],
+                        ),
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        height: SizeConfig.screenHeight/6,
+                        width: SizeConfig.screenWidth/1.1,
+                        decoration: BoxDecoration(
+                            color: kLigthColor,
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        child: Cardt(cart: demoCarts[index]),
+                  ),
                 ),
-                child: Row(
-                  children: [
-                    const Spacer(),
-                    SvgPicture.asset("assets/icons/Trash.svg"),
-                  ],
-                ),
-              ),
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                height: SizeConfig.screenHeight/6,
-                width: SizeConfig.screenWidth/1.1,
-                decoration: BoxDecoration(
-                    color: kLigthColor,
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: Cardt(cart: demoCarts[index]),
               ),
             ),
-          ),
-        ),
+          )),
+          Expanded(
+            flex: 1,
+              child: Container(
+                //height: MediaQuery.of(context).size.height/100,
+                width: SizeConfig.screenWidth/10,
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(15)
+                ),
+                child: Text('Add to Cart',style: TextStyle(
+                    color: Colors.white,
+                    fontSize: SizeConfig.screenHeight/50
+                ),),
+              )
+          )
+        ],
       ),
     );
   }

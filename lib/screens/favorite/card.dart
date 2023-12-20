@@ -91,7 +91,7 @@ class _CardtState extends State<Cardt> {
         ),
         Positioned(
           top: -5,
-          right: 10,
+          right: 5,
           child: Checkbox(
             value: widget.cart.product.isFavourite,
             activeColor: kPrimaryColor,
